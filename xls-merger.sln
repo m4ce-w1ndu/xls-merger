@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MergerApp", "MergerApp\MergerApp.csproj", "{ABAC55D3-13E4-4F34-A4CD-34E636BEEE60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Merger", "Merger\Merger.csproj", "{24BD7F80-78C6-412D-BAE0-59508716EE73}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{ABAC55D3-13E4-4F34-A4CD-34E636BEEE60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABAC55D3-13E4-4F34-A4CD-34E636BEEE60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABAC55D3-13E4-4F34-A4CD-34E636BEEE60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24BD7F80-78C6-412D-BAE0-59508716EE73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24BD7F80-78C6-412D-BAE0-59508716EE73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24BD7F80-78C6-412D-BAE0-59508716EE73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24BD7F80-78C6-412D-BAE0-59508716EE73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
