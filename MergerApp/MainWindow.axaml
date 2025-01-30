@@ -2,8 +2,66 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="300"
+        Width="500"
+        Height="300"
+        Background="#ff1e1e1e"
+        FontFamily="Segoe UI"
         x:Class="MergerApp.MainWindow"
-        Title="MergerApp">
-    Welcome to Avalonia!
+        Title="Excel Merger">
+
+    <Window.Styles>
+        <Style Selector="Button">
+            <Setter Property="Background" Value="#ff0078d7" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Padding" Value="15 10" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="CornerRadius" Value="5" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0 10" />
+        </Style>
+        
+        <Style Selector="Button:pointerover">
+            <Setter Property="Background" Value="#0066CC" />
+        </Style>
+        
+        <Style Selector="Button:pressed">
+            <Setter Property="Background" Value="#0052A3" />
+        </Style>
+        
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0 20" />
+        </Style>
+    </Window.Styles>
+    
+    <Grid>
+        <Border Background="#ff252526"
+                CornerRadius="10"
+                Padding="20"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+            
+            <StackPanel Spacing="15">
+                <TextBlock Text="Excel Merger"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           HorizontalAlignment="Center" />
+                
+                <Button Content="Select Excel Files" />
+                <Button Content="Merge Files" />
+                
+                <TextBlock Foreground="#ffa0a0a0" />
+            </StackPanel>
+            
+        </Border>
+    </Grid>
+
 </Window>

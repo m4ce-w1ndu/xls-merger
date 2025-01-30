@@ -1,5 +1,7 @@
+using System;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 
 namespace MergerApp;
@@ -19,5 +21,10 @@ public partial class App : Application
         }
 
         base.OnFrameworkInitializationCompleted();
+    }
+
+    private async void OnSelectFilesClick(object sender, RoutedEventArgs e)
+    {
+        
     }
 }
