@@ -1,4 +1,4 @@
-# Excel Merges (Avalonia UI)
+# Excel Merger (Avalonia UI)
 
 **Excel Merger** is a lightweight desktop application built with **Avalonia UI** that simplifies the process of merging multiple Excel files with a specific format into a single, consolidated file. Whether you're working with reports, datasets, or other structured data, this tool ensures seamless integration of your Excel files while preserving the original formatting.
 
