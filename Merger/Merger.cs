@@ -8,14 +8,14 @@ using OfficeOpenXml;
 /// <summary>
 /// Runs merging operations on Excel files
 /// </summary>
-public class Merger
+public static class Merger
 {
-    public Merger()
+    static Merger()
     {
         ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
     }
 
-    public void MergeFiles(ObservableCollection<string> selectedFiles, string outputPath)
+    public static void MergeFiles(ObservableCollection<string> selectedFiles, string outputPath)
     {
         using var outputPackage = new ExcelPackage();
         var outputSheet = outputPackage.Workbook.Worksheets.Add("Results");

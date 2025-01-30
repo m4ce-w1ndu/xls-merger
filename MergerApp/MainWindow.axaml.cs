@@ -134,8 +134,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
             if (outputFile != null)
             {
-                var merger = new Merger.Merger();
-                await Task.Run(() => merger.MergeFiles(SelectedFiles, outputFile.Path.AbsolutePath));
+                await Task.Run(() => Merger.Merger.MergeFiles(SelectedFiles, outputFile.Path.AbsolutePath));
 
                 StatusMessage = "Files merged successfully.";
             }
