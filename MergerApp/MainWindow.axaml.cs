@@ -7,7 +7,7 @@ using Avalonia.Platform.Storage;
 
 namespace MergerApp;
 
-public partial class MainWindow : Window
+public partial class MainWindow : Window, INotifyPropertyChanged
 {
     public MainWindow()
     {
@@ -20,10 +20,27 @@ public partial class MainWindow : Window
         AvaloniaXamlLoader.Load(this);
     }
     
+    #region Fields
+    
+    /// <summary>
+    /// Collection of selected files
+    /// </summary>
     private ObservableCollection<string> _selectedFiles = [];
+    
+    /// <summary>
+    /// Current status message
+    /// </summary>
     private string _statusMessage = "No files selected.";
+    
+    /// <summary>
+    /// Merge availability
+    /// </summary>
     private bool _canMerge = false;
+    
+    #endregion
 
+    #region Properties
+    
     public ObservableCollection<string> SelectedFiles
     {
         get => _selectedFiles;
@@ -53,7 +70,11 @@ public partial class MainWindow : Window
             OnPropertyChanged(nameof(CanMerge));
         }
     }
+    
+    #endregion
 
+    #region Event Handlers
+    
     private async void OnSelectFilesClick(object sender, RoutedEventArgs e)
     {
         var files = await StorageProvider.OpenFilePickerAsync(new FilePickerOpenOptions()
@@ -101,7 +122,11 @@ public partial class MainWindow : Window
     }
     
     public new event PropertyChangedEventHandler? PropertyChanged;
-    
-    private void OnPropertyChanged(string propertyName) =>
+
+    private void OnPropertyChanged(string propertyName)
+    {
         PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+    }
+    
+    #endregion
 }
