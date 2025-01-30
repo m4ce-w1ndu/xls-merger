@@ -1,10 +1,5 @@
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
-
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
@@ -105,8 +100,8 @@ public partial class MainWindow : Window
         Close();
     }
     
-    // Implement INotifyPropertyChanged for data binding.
-    public new event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+    public new event PropertyChangedEventHandler? PropertyChanged;
+    
     private void OnPropertyChanged(string propertyName) =>
         PropertyChanged?.Invoke(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
 }
