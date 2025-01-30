@@ -1,5 +1,7 @@
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
@@ -95,7 +97,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             SelectedFiles.Clear();
             foreach (var file in files)
             {
-                SelectedFiles.Add(file.Name);
+                SelectedFiles.Add(file.Path.AbsolutePath);
             }
 
             StatusMessage = $"{SelectedFiles.Count} file(s) selected.";
@@ -108,12 +110,48 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         }
     }
 
-    private void OnMergeFilesClick(object sender, RoutedEventArgs e)
+    private async void OnMergeFilesClick(object sender, RoutedEventArgs e)
     {
         if (SelectedFiles.Count == 0) return;
         
         StatusMessage = "Merging...";
         CanMerge = false;
+
+        try
+        {
+            var outputFile = await StorageProvider.SaveFilePickerAsync(new FilePickerSaveOptions()
+            {
+                Title = "Save File",
+                FileTypeChoices =
+                [
+                    new FilePickerFileType("Excel Files")
+                    {
+                        Patterns = ["*.xls", "*.xlsx"]
+                    },
+                ],
+                SuggestedFileName = "MergedFile.xlsx"
+            });
+
+            if (outputFile != null)
+            {
+                var merger = new Merger.Merger();
+                await Task.Run(() => merger.MergeFiles(SelectedFiles, outputFile.Path.AbsolutePath));
+
+                StatusMessage = "Files merged successfully.";
+            }
+            else
+            {
+                StatusMessage = "Merge canceled.";
+            }
+        }
+        catch (Exception exception)
+        {
+            StatusMessage = $"Error: {exception.Message}";
+        }
+        finally
+        {
+            CanMerge = true;
+        }
     }
 
     private void OnExitClick(object sender, RoutedEventArgs e)
