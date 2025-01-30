@@ -23,4 +23,15 @@
   <ItemGroup>
     <ProjectReference Include="..\Merger\Merger.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\logo.png" />
+    <AvaloniaResource Include="Resources\logo.png" />
+    <None Remove="Resources\demont.ico" />
+    <AvaloniaResource Include="Resources\demont.ico" />
+  </ItemGroup>
 </Project>
